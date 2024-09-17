@@ -28,7 +28,9 @@ This is the backend server for the NBA Stats project. It provides API endpoints 
 
 3. Create a `.env` file in the root directory and add the following:
    ```
-   API_BASE_URL=https://www.balldontlie.io/api/v1
+    API_BASE_URL=https://www.balldontlie.io/api/v1
+    BALLDONTLIE_API_KEY=YOUR_API_KEY
+    USE_MOCK_DATA=false
    ```
 
 4. Start the development server:
