@@ -23,7 +23,10 @@ It allows users to search for NBA players, view their stats, and manage a list o
    ```
    npm install
    ```
-
+2. Create a `.env` file in the root directory and add the following:
+   ```
+    VITE_API_BASE_URL=http://localhost:3000
+   ```
 3. Start the development server:
    ```
    npm run dev
