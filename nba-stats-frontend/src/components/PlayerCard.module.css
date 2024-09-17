@@ -1,0 +1,48 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playerInfo {
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.playerName {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.playerDetails {
+  font-size: 14px;
+  color: #666;
+}
+
+.actionButton {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .playerInfo {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .actionButton {
+    width: 100%;
+  }
+}

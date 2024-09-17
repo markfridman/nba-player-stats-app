@@ -1,0 +1,45 @@
+.statsContainer {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.statTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-weight: 500;
+}
+
+.statValue {
+  font-weight: normal;
+}
+
+.loadingStats {
+  font-style: italic;
+  color: #6c757d;
+}
+
+@media (max-width: 480px) {
+  .statsContainer {
+    padding: 8px;
+  }
+
+  .statTitle {
+    font-size: 14px;
+  }
+
+  .statItem {
+    font-size: 12px;
+  }
+}

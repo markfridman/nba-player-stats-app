@@ -1,0 +1,19 @@
+.listContainer {
+  margin-top: 20px;
+}
+
+.loadingMessage, .errorMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.errorMessage {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .loadingMessage, .errorMessage {
+    font-size: 16px;
+  }
+}

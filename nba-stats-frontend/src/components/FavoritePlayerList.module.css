@@ -1,0 +1,17 @@
+.favoriteListContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.emptyMessage {
+  text-align: center;
+  font-style: italic;
+  color: #6c757d;
+}
