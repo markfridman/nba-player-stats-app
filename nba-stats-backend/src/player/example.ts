@@ -12,7 +12,6 @@ export const fetchPlayers = async (searchQuery: string = ''): Promise<any> => {
         'Authorization': API_KEY
       }
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     throw new Error('Error fetching players data');

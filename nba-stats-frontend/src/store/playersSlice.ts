@@ -38,6 +38,7 @@ export const fetchPlayers = createAsyncThunk<
   'players/fetchPlayers',
   async ({ searchTerm, page, perPage }: { searchTerm: string; page: number; perPage: number }, { rejectWithValue }) => {
     try {
+
       const response = await fetchPlayersApi(searchTerm, page, perPage);
       return response;
     } catch (error) {
@@ -91,9 +92,9 @@ const playersSlice = createSlice({
       .addCase(fetchPlayers.fulfilled, (state, action) => {
         state.loading = false;
         state.list = action.payload.data;
-        state.totalPages = Math.ceil(parseInt(action.payload.meta.per_page) / state.perPage);
-        state.perPage = parseInt(action.payload.meta.per_page);
-        state.totalCount = state.list.length;
+        state.totalPages = action.payload.meta.total_pages;
+        state.perPage = action.payload.meta.per_page;
+        state.totalCount = action.payload.meta.total_count;
       })
       .addCase(fetchPlayers.rejected, (state, action) => {
         state.loading = false;

@@ -8,8 +8,8 @@ export class PlayerController {
   @Get()
   async getPlayers(
     @Query('search') search: string,
-    @Query('page') page: number,
-    @Query('per_page') perPage: number,
+    @Query('page') page: string,
+    @Query('per_page') perPage: string,
   ) {
     return this.playerService.getPlayers(search, page, perPage);
   }

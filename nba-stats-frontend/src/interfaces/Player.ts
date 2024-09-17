@@ -27,10 +27,10 @@ export interface Player {
 export interface PlayerApiResponse {
   data: Player[];
   meta: {
+    total_pages: number;
     current_page: number;
     next_page: number | null;
-    per_page: string;
-    total_pages: number;
+    per_page: number;
     total_count: number;
   };
 }

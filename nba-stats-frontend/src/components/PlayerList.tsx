@@ -21,7 +21,7 @@ export const PlayerList: React.FC = () => {
   } = useAppSelector((state) => state.players);
 
   useEffect(() => {
-    dispatch(fetchPlayers({ searchTerm, page: currentPage, perPage: 20 }));
+    dispatch(fetchPlayers({ searchTerm, page: currentPage, perPage: 8 }));
   }, [dispatch, searchTerm, currentPage]);
 
   const handlePageChange = useCallback((page: number) => {

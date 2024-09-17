@@ -37,10 +37,12 @@ export class PlayerService {
 
   getPlayers(
     search: string,
-    page: number,
-    perPage: number,
+    page: string,
+    perPage: string,
   ): Observable<PlayerApiResponse> {
-    if (page < 1 || perPage < 1) {
+    const pageInt = parseInt(page, 10);
+    const perPageInt = parseInt(perPage, 10);
+    if (pageInt < 1 || perPageInt < 1) {
       throw new InvalidInputException(
         'Page and perPage must be positive integers',
       );
@@ -52,18 +54,19 @@ export class PlayerService {
           player.last_name.toLowerCase().includes(search.toLowerCase()),
       );
 
-      const startIndex = (page - 1) * perPage;
-      const endIndex = startIndex + perPage;
+      const startIndex = (pageInt - 1) * perPageInt;
+      const endIndex = startIndex + perPageInt;
       const paginatedPlayers = filteredPlayers.slice(startIndex, endIndex);
 
       return of({
         data: paginatedPlayers,
         meta: {
-          // total_pages: Math.ceil(filteredPlayers.length / perPage),
-          // current_page: page,
-          next_page: page * perPage < filteredPlayers.length ? page + 1 : null,
-          per_page: perPage,
-          // total_count: filteredPlayers.length,
+          total_pages: Math.ceil(filteredPlayers.length / perPageInt),
+          current_page: pageInt,
+          next_page:
+            pageInt * perPageInt < filteredPlayers.length ? pageInt + 1 : null,
+          per_page: perPageInt,
+          total_count: filteredPlayers.length,
         },
       } as unknown as PlayerApiResponse);
     }
@@ -84,7 +87,6 @@ export class PlayerService {
       })
       .pipe(
         map((response) => {
-          console.log(response.data);
           return response.data;
         }),
         tap((data) => setCachedData(cacheKey, data)),
